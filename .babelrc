@@ -1,0 +1,19 @@
+{
+    "presets": [
+        [
+            "@babel/env",
+            {
+                "targets": {
+                    "node": "current"
+                }
+            }
+        ],
+        ["@babel/typescript"]
+    ],
+    "plugins": [
+        "@babel/proposal-nullish-coalescing-operator",
+        "@babel/proposal-optional-chaining"
+    ],
+    "sourceMaps": true,
+    "comments": false
+}
