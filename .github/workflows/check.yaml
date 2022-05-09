@@ -1,0 +1,44 @@
+name: Check and Build
+on: push
+
+# Available Environments
+# https://github.com/actions/virtual-environments#available-environments
+
+jobs:
+    ubuntu:
+        runs-on: ubuntu-20.04
+        steps:
+            - uses: actions/checkout@v2
+            - name: Runtime versions
+              run: |
+                  node -v
+                  yarn -v
+            - name: npm install
+              run: |
+                  yarn install
+            - name: npm run test
+              run: |
+                  yarn test
+            - name: npm run build
+              run: |
+                  yarn build
+
+    macos:
+        runs-on: macos-12
+        steps:
+            - uses: actions/checkout@v2
+            - name: Runtime versions
+              run: |
+                  node -v
+                  yarn -v
+            - name: npm install
+              run: |
+                  yarn install
+            - name: npm run test
+              run: |
+                  yarn test
+            - name: npm run build
+              run: |
+                  yarn build
+
+    # TODO: windows
