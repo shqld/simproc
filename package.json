@@ -16,7 +16,7 @@
         "build": "yarn build:type && yarn rollup -c",
         "build:type": "tsc -d -m amd --emitDeclarationOnly --outFile dist/index.d.ts",
         "test": "run-p test:*",
-        "test:unit": "exit 0",
+        "test:unit": "ava",
         "test:fmt": "prettier --check --loglevel warn .",
         "test:lint": "eslint src",
         "test:type": "tsc --noEmit",
@@ -41,6 +41,7 @@
         "@types/debug": "^4.1.7",
         "@typescript-eslint/eslint-plugin": "^5.8.1",
         "@typescript-eslint/parser": "^5.8.1",
+        "ava": "^4.2.0",
         "eslint": "^8.6.0",
         "eslint-config-google": "^0.14.0",
         "eslint-config-prettier": "^8.3.0",
@@ -52,6 +53,19 @@
         "rollup-plugin-auto-external": "^2.0.0",
         "rollup-plugin-babel": "^4.4.0",
         "rollup-plugin-terser": "^7.0.2",
+        "ts-node": "^10.7.0",
         "typescript": "^4.3.5"
+    },
+    "ava": {
+        "files": [
+            "tests/**",
+            "!tests/mock/*"
+        ],
+        "extensions": [
+            "ts"
+        ],
+        "require": [
+            "ts-node/register"
+        ]
     }
 }
